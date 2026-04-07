@@ -8,7 +8,7 @@ from sklearn.linear_model import LogisticRegression as SklearnLR
 
 # Add root directory to path for imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.logistic_regression import LogisticRegression
+from supervised_ML.core.classification.logistic_regression import LogisticRegression
 from utils.data_preprocessing import clean_data
 
 def run_hr_analysis():

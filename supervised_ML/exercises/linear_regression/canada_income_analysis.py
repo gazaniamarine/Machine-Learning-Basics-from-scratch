@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression as SklearnLR
 
 # Path setup
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.linear_regression import LinearRegression
+from supervised_ML.core.regression.linear_regression import LinearRegression
 from utils.data_preprocessing import clean_data
 
 def run_canada_income_exercise():

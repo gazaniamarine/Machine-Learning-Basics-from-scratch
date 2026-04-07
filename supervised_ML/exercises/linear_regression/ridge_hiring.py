@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import Ridge as SklearnRidge
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.ridge_regression import RidgeRegression
+from supervised_ML.core.regression.ridge_regression import RidgeRegression
 from utils.data_preprocessing import fix_missing_values, words_to_numbers, clean_data
 
 def run_ridge_exercise():

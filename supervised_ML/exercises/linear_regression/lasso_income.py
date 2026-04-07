@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import Lasso as SklearnLasso
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.lasso_regression import LassoRegression
+from supervised_ML.core.regression.lasso_regression import LassoRegression
 from utils.data_preprocessing import clean_data
 
 def run_lasso_exercise():

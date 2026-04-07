@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression as SklearnLR
 
 # Path setup
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.gradient_descent import GradientDescent
+from supervised_ML.core.regression.gradient_descent import GradientDescent
 from utils.data_preprocessing import clean_data
 
 def run_test_scores_exercise():

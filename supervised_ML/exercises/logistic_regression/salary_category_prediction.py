@@ -9,7 +9,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.linear_model import LogisticRegression as SklearnSoftmax
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from supervised_ML.core.softmax_regression import SoftmaxRegression
+from supervised_ML.core.classification.softmax_regression import SoftmaxRegression
 from utils.data_preprocessing import clean_data
 
 def run_softmax_exercise():
