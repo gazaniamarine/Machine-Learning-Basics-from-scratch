@@ -2,21 +2,33 @@ import numpy as np
 
 class LassoRegression:
     def __init__(self, alpha=1.0, lr=0.01, iterations=1000):
-        self.alpha, self.lr, self.epochs = alpha, lr, iterations
-        self.m, self.b = 0, 0
+        self.alpha = alpha
+        self.lr = lr
+        self.epochs = iterations
+        self.weights = None
+        self.bias = None
 
-    def fit(self, x, y):
-        n = len(x)
-        # Using Coordinate Descent style for Lasso convergence
+    def fit(self, X, y):
+        X, y = np.array(X, dtype=np.float64), np.array(y, dtype=np.float64)
+        if X.ndim == 1: X = X.reshape(-1, 1)
+        n_samples, n_features = X.shape
+        
+        # Initialize weights and bias
+        self.weights = np.zeros(n_features)
+        self.bias = 0
+        
         for _ in range(self.epochs):
-            y_pred = self.m * x + self.b
+            y_pred = X.dot(self.weights) + self.bias
             
-            # Gradients with L1 penalty sign(m)
-            dm = (1/n) * (sum(x * (y_pred - y)) + self.alpha * np.sign(self.m))
-            db = (1/n) * sum(y_pred - y)
+            # Gradients with L1 penalty: sign(weights)
+            dw = (1/n_samples) * (X.T.dot(y_pred - y) + self.alpha * np.sign(self.weights))
+            db = (1/n_samples) * np.sum(y_pred - y)
             
-            self.m -= self.lr * dm
-            self.b -= self.lr * db
+            # Update parameters
+            self.weights -= self.lr * dw
+            self.bias -= self.lr * db
 
-    def predict(self, x):
-        return self.m * x + self.b
+    def predict(self, X):
+        X = np.array(X, dtype=np.float64)
+        if X.ndim == 1: X = X.reshape(-1, 1)
+        return X.dot(self.weights) + self.bias
