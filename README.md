@@ -9,10 +9,11 @@ The core motivation behind this project is to un-box the mathematical "black-box
 The project is logically divided into primary ML branches along with utility modules:
 
 - **`supervised_ML/`**: Algorithms that learn from labeled training data.
-  - *Classification*: Logistic Regression, Support Vector Machines (SVM), Random Forests, Softmax Regression.
+  - *Classification*: Logistic Regression, Support Vector Machines (SVM), Random Forests, Softmax Regression, K-Nearest Neighbors (KNN).
   - *Regression*: Simple/Multiple Linear Regression, Ridge Regression, Lasso Regression, Gradient Descent modeling.
 - **`unsupervised_ML/`**: Algorithms that infer patterns from unlabeled data.
   - *Clustering*: K-Means Clustering (Iris Dataset example).
+  - *Dimensionality Reduction*: Principal Component Analysis (PCA).
 - **`utils/`**: Reusable modules for consistent environments across models.
   - `cleaning.py`: Missing value interpolation and text-strip cleaning.
   - `encoding.py`: Word-to-number mappings and One-Hot Encoding functions.
@@ -30,7 +31,17 @@ pip install -r requirements.txt
 ### Running an Example
 You can run any of the standalone algorithm demonstrations to see the custom models compute alongside exact `scikit-learn` validation outputs and map to graphical plots.
 
-For example, to run the K-Means clustering algorithm:
+For example, to run the K-Nearest Neighbors classification:
+```bash
+python supervised_ML/Classification/KNN/example_knn.py
+```
+
+To run PCA dimensionality reduction:
+```bash
+python unsupervised_ML/DimensionalityReduction/PCA/example_pca.py
+```
+
+To run the K-Means clustering algorithm:
 ```bash
 python unsupervised_ML/Clustering/KMeans/example_iris_kmeans.py
 ```
